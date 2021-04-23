@@ -1,0 +1,23 @@
+.header {
+	position: relative;
+
+	h1 {
+		color: white;
+		letter-spacing: 10px;
+		font-weight: 700;
+	}
+	&__themeSwicherIcon {
+		position: absolute;
+		right: 0;
+		top: 0;
+		cursor: pointer;
+		content: "";
+		@include themed() {
+			background-image: t('themeSwicherIcon');
+		}
+		background-size: cover;
+		width: pxToRem(20);
+		height: pxToRem(20);
+		transition: all 400ms ease-out;
+	}
+}

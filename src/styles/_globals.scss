@@ -12,6 +12,28 @@ html {
 body {
 	font-family: 'Josefin Sans', sans-serif;
 }
+.page {
+	width: 100%;
+	height: 100vh;
+	@include themed() {
+		background-color: t('backgroundColor');
+	}
+	transition: background-color 400ms ease-out;
+}
+
+.container {
+	position: relative;
+	z-index: 1;
+	max-width: pxToRem(540);
+	margin: 0 auto;
+
+	padding-top: pxToRem(70);
+
+	@include breakpoint-down(medium) {
+		padding: pxToRem(25);
+		padding-top: pxToRem(45);
+	}
+}
 
 .flex {
 	display: flex;
