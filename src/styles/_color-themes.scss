@@ -1,12 +1,16 @@
 $themes: (
 	light:(
 			backgroundColor: $Very_Light_Gray,
+			inputBackground:White,
+			inputTextColor: $Very_Dark_Desaturated_Blue,
 			heroImage: url('../images/bg-desktop-light.jpg'),
 			heroMobileImage: url('../images/bg-mobile-light.jpg'),
 			themeSwicherIcon: url('../images/icon-moon.svg')
 		),
 	dark:(
 			backgroundColor: $Very_Dark_Blue,
+			inputBackground: $Very_Dark_Desaturated_Blue,
+			inputTextColor: $Very_Light_Gray,
 			heroImage: url('../images/bg-desktop-dark.jpg'),
 			heroMobileImage: url('../images/bg-mobile-dark.jpg'),
 			themeSwicherIcon: url('../images/icon-sun.svg')
