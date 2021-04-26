@@ -1,5 +1,10 @@
 .header {
 	position: relative;
+	margin-bottom: pxToRem(50);
+
+	@include breakpoint-down(small) {
+		margin-bottom: pxToRem(40);
+	}
 
 	h1 {
 		color: white;
