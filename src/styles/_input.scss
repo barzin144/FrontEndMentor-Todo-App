@@ -1,5 +1,5 @@
 input {
-	padding: pxToRem(15) pxToRem(15) pxToRem(15) pxToRem(50);
+	padding: pxToRem(20) pxToRem(15) pxToRem(20) pxToRem(50);
 	border-radius: 5px;
 	border: none;
 	font-family: 'Josefin Sans', sans-serif;
@@ -26,7 +26,7 @@ input {
 	position: relative;
 	&::before {
 		position: absolute;
-		top: pxToRem(11);
+		top: pxToRem(16);
 		left: pxToRem(15);
 		content: "";
 		border: 1px solid $Dark_Grayish_Blue;
