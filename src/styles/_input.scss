@@ -26,12 +26,12 @@ input {
 	position: relative;
 	&::before {
 		position: absolute;
-		top: pxToRem(16);
-		left: pxToRem(15);
+		top: pxToRem(14);
+		left: pxToRem(13);
 		content: "";
 		border: 1px solid $Dark_Grayish_Blue;
 		border-radius: 50%;
-		width: pxToRem(18);
-		height: pxToRem(18);
+		width: pxToRem(22);
+		height: pxToRem(22);
 	}
 }
