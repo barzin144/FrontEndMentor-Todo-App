@@ -11,14 +11,9 @@ html {
 
 body {
 	font-family: 'Josefin Sans', sans-serif;
-}
-.page {
-	width: 100%;
-	height: 100vh;
 	@include themed() {
 		background-color: t('backgroundColor');
 	}
-	transition: background-color 400ms ease-out;
 }
 
 .container {

@@ -1,6 +1,8 @@
 $themes: (
 	light:(
 			backgroundColor: $Very_Light_Gray,
+			todoItemBorderColor:$Light_Gray_Color,
+			boxShadowColor:$Light_Grayish_Blue,
 			inputBackground:White,
 			inputTextColor: $Very_Dark_Desaturated_Blue,
 			heroImage: url('../images/bg-desktop-light.jpg'),
@@ -9,6 +11,8 @@ $themes: (
 		),
 	dark:(
 			backgroundColor: $Very_Dark_Blue,
+			todoItemBorderColor:$Dark_Gray_Color,
+			boxShadowColor:$Very_Very_Dark_Blue,
 			inputBackground: $Very_Dark_Desaturated_Blue,
 			inputTextColor: $Very_Light_Gray,
 			heroImage: url('../images/bg-desktop-dark.jpg'),
