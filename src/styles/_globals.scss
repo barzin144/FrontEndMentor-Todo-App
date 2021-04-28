@@ -11,6 +11,8 @@ html {
 
 body {
 	font-family: 'Josefin Sans', sans-serif;
+	transition: background-color 400ms ease-out;
+
 	@include themed() {
 		background-color: t('backgroundColor');
 	}
