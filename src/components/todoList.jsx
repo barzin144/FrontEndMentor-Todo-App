@@ -11,7 +11,8 @@ const initialState = JSON.parse(localStorage.getItem('todos')) || {
         { id: 5, title: "Pick up groceries", completed: false },
         { id: 6, title: "Complete Todo App on Frontend Mentor", completed: false }
     ],
-    LastId: 6
+    LastId: 6,
+    Filter: 'All'
 };
 
 const reducer = (state, action) => {
@@ -32,6 +33,11 @@ const reducer = (state, action) => {
 
             return { Items: items, LastId: state.LastId };
 
+        case 'clearCompleted':
+            const notCompleteds = state.Items.filter(x => x.completed !== true);
+
+            return { Items: notCompleteds, LastId: state.LastId };
+    
         case 'toggleCompleted':
             const item = state.Items.find(x => x.id === action.peyload);
             item.completed = !item.completed;
@@ -49,11 +55,15 @@ const TodoList = () => {
     React.useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(state));
     }, [state]);
+
+    let todos = state.Items;
+    const itemRemaining = state.Items.filter(x => x.completed === false).length;
+
     return (
         <>
             <Input addHandler={(title) => dispatch({ type: 'add', peyload: title })} />
             <div className="todoList">
-                {state.Items.map(item =>
+                {todos.map(item =>
                     <TodoItem
                         key={item.id}
                         id={item.id}
@@ -63,6 +73,14 @@ const TodoList = () => {
                         toggleCompletedHandler={(id) => dispatch({ type: 'toggleCompleted', peyload: id })}
                     />
                 )}
+                <div className="todoList__stat">
+                    <span className="remaining">
+                        {itemRemaining > 0 ? itemRemaining : ""}
+                        {itemRemaining > 1 ? " items left" : itemRemaining === 0 ? "no item left" : " item left"}   
+                    </span>
+                    <span className="clearCompleted" onClick={() => dispatch({ type: 'clearCompleted' })}>Clear Completed</span>
+                </div>
+                <div className="todoList__filters"></div>
             </div>
         </>
     );
