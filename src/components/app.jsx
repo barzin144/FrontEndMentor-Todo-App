@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./header";
 import Hero from "./hero";
-import Input from "./input";
 import TodoList from "./todoList";
 
 const App = () => {
@@ -24,7 +23,6 @@ const App = () => {
         <>
             <div className="container">
                 <Header themeSwicher={themeSwicher} />
-                <Input />
                 <TodoList />
             </div>
             <Hero />

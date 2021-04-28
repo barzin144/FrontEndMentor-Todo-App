@@ -1,25 +1,17 @@
 import React from "react";
 
 const TodoItem = (props) => {
-    const [isChecked, setIsChecked] = React.useState(false);
-    const checkboxClickHandler = () => {
-        if (isChecked) {
-            setIsChecked(false);
-        }
-        else{
-            setIsChecked(true);
-        }
-    }
     return (
-        <div className="todoItem" onClick={checkboxClickHandler}>
-           <div className={`todoItem__checkbox ${isChecked ? "checked" : ''}`}>
-               <div className={`todoItem__checkbox-check ${isChecked ? "checked" : ''}`}></div>
-           </div>
-           <div className={`todoItem__text ${isChecked ? "checked" : ''}`}>
-               <span>
-                   Compelete Online Javascript course
-               </span>
-           </div>
+        <div className="todoItem">
+            <div className={`todoItem__checkbox ${props.completed ? "checked" : ''}`} onClick={() => props.toggleCompletedHandler(props.id)}>
+                <div className={`todoItem__checkbox-check ${props.completed ? "checked" : ''}`}></div>
+            </div>
+            <div className={`todoItem__text ${props.completed ? "checked" : ''}`}>
+                <span onClick={() => props.toggleCompletedHandler(props.id)}>
+                    {props.title}
+                </span>
+            </div>
+            <span className="todoItem__remove" onClick={() => props.removeHandler(props.id)}></span>
         </div>
     );
 };

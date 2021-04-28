@@ -1,5 +1,6 @@
 .todoList {
 	padding-top: pxToRem(20);
+	margin-bottom: pxToRem(50);
 	transition: box-shadow 400ms ease-in-out;
 
 	@include themed() {

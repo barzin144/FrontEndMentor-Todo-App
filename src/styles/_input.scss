@@ -5,6 +5,7 @@ input {
 	font-family: 'Josefin Sans', sans-serif;
 	width: 100%;
 	transition: background-color 400ms ease-out;
+	font-size: $font_med;
 
 	@include themed() {
 		background-color: t('inputBackground');
@@ -26,8 +27,8 @@ input {
 	position: relative;
 	&::before {
 		position: absolute;
-		top: pxToRem(14);
-		left: pxToRem(13);
+		top: pxToRem(16);
+		left: pxToRem(14);
 		content: "";
 		border: 1px solid $Dark_Grayish_Blue;
 		border-radius: 50%;
