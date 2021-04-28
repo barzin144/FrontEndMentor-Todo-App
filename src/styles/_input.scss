@@ -27,8 +27,8 @@ input {
 	position: relative;
 	&::before {
 		position: absolute;
-		top: pxToRem(14);
-		left: pxToRem(13);
+		top: pxToRem(16);
+		left: pxToRem(14);
 		content: "";
 		border: 1px solid $Dark_Grayish_Blue;
 		border-radius: 50%;
