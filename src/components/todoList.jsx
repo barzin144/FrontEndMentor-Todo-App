@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./input";
 import TodoItem from "./todoItem";
 
-const initialState = {
+const initialState = JSON.parse(localStorage.getItem('todos')) || {
     Items: [
         { id: 1, title: "Compelete Online Javascript course", completed: true },
         { id: 2, title: "Jog around the park 3x", completed: false },
@@ -46,6 +46,9 @@ const reducer = (state, action) => {
 const TodoList = () => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
+    React.useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(state));
+    }, [state]);
     return (
         <>
             <Input addHandler={(title) => dispatch({ type: 'add', peyload: title })} />
