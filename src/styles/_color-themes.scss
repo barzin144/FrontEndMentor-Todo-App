@@ -6,6 +6,7 @@ $themes: (
 			inputBackground:White,
 			inputTextColor: $Very_Dark_Desaturated_Blue,
 			clearColorHover: $Very_Dark_Grayish_Blue,
+			filtersColorHover: $Very_Dark_Grayish_Blue,
 			heroImage: url('../images/bg-desktop-light.jpg'),
 			heroMobileImage: url('../images/bg-mobile-light.jpg'),
 			themeSwicherIcon: url('../images/icon-moon.svg')
@@ -17,6 +18,7 @@ $themes: (
 			inputBackground: $Very_Dark_Desaturated_Blue,
 			inputTextColor: $Very_Light_Gray,
 			clearColorHover: $Light_Grayish_Blue_Hover,
+			filtersColorHover: $Light_Grayish_Blue_Hover,
 			heroImage: url('../images/bg-desktop-dark.jpg'),
 			heroMobileImage: url('../images/bg-mobile-dark.jpg'),
 			themeSwicherIcon: url('../images/icon-sun.svg')

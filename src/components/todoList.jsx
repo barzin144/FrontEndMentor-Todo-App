@@ -12,7 +12,7 @@ const initialState = JSON.parse(localStorage.getItem('todos')) || {
         { id: 6, title: "Complete Todo App on Frontend Mentor", completed: false }
     ],
     LastId: 6,
-    Filter: 'All'
+    Filter: 0
 };
 
 const reducer = (state, action) => {
@@ -26,23 +26,26 @@ const reducer = (state, action) => {
             };
             todos.push(newItem);
 
-            return { Items: todos, LastId: state.LastId + 1 };
+            return { ...state, Items: todos, LastId: state.LastId + 1 };
 
         case 'remove':
             const items = state.Items.filter(x => x.id !== action.peyload);
 
-            return { Items: items, LastId: state.LastId };
+            return { ...state, Items: items };
 
         case 'clearCompleted':
             const notCompleteds = state.Items.filter(x => x.completed !== true);
 
-            return { Items: notCompleteds, LastId: state.LastId };
-    
+            return { ...state, Items: notCompleteds };
+
         case 'toggleCompleted':
             const item = state.Items.find(x => x.id === action.peyload);
             item.completed = !item.completed;
 
-            return { Items: state.Items, LastId: state.LastId };
+            return { ...state, Items: state.Items };
+
+        case 'setFilter':
+            return { ...state, Filter: action.peyload };
 
         default:
             break;
@@ -56,9 +59,27 @@ const TodoList = () => {
         localStorage.setItem('todos', JSON.stringify(state));
     }, [state]);
 
-    let todos = state.Items;
+    let todos;
+    switch (state.Filter) {
+        case 0:
+            todos = state.Items;
+            break;
+        case 1:
+            todos = state.Items.filter(x => x.completed === false);
+            break;
+        case 2:
+            todos = state.Items.filter(x => x.completed === true);
+            break;
+        default:
+            break;
+    }
     const itemRemaining = state.Items.filter(x => x.completed === false).length;
-
+    const filters =
+        <>
+            <span onClick={() => dispatch({ type: 'setFilter', peyload: 0 })} className={`${state.Filter === 0 ? "active" : ""}`}>All</span>
+            <span onClick={() => dispatch({ type: 'setFilter', peyload: 1 })} className={`${state.Filter === 1 ? "active" : ""}`}>Active</span>
+            <span onClick={() => dispatch({ type: 'setFilter', peyload: 2 })} className={`${state.Filter === 2 ? "active" : ""}`}>Completed</span>
+        </>;
     return (
         <>
             <Input addHandler={(title) => dispatch({ type: 'add', peyload: title })} />
@@ -76,11 +97,18 @@ const TodoList = () => {
                 <div className="todoList__stat">
                     <span className="remaining">
                         {itemRemaining > 0 ? itemRemaining : ""}
-                        {itemRemaining > 1 ? " items left" : itemRemaining === 0 ? "no item left" : " item left"}   
+                        {itemRemaining > 1 ? " items left" : itemRemaining === 0 ? "no item left" : " item left"}
                     </span>
+                    <div className="filters hide-for-mobile">
+                        {filters}
+                    </div>
                     <span className="clearCompleted" onClick={() => dispatch({ type: 'clearCompleted' })}>Clear Completed</span>
                 </div>
-                <div className="todoList__filters"></div>
+            </div>
+            <div className="hide-for-desktop">
+                <div className="todoList__filters">
+                    {filters}
+                </div>
             </div>
         </>
     );

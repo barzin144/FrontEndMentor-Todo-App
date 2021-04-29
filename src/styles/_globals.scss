@@ -23,7 +23,7 @@ body {
 	z-index: 1;
 	max-width: pxToRem(540);
 	margin: 0 auto;
-
+	margin-bottom: pxToRem(50);
 	padding-top: pxToRem(70);
 
 	@include breakpoint-down(medium) {
@@ -54,13 +54,13 @@ body {
 
 // Visibility
 .hide-for-desktop {
-	@include breakpoint-up(large) {
+	@include breakpoint-up(medium) {
 		display: none;
 	}
 }
 
 .hide-for-mobile {
-	@include breakpoint-down(medium) {
+	@include breakpoint-down(small) {
 		display: none;
 	}
 }
