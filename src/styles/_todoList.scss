@@ -24,6 +24,7 @@
 		border-radius: 5px;
 		color: $Dark_Grayish_Blue;
 		font-size: $font_sm;
+		transition: all 400ms ease-in-out;
 
 		@include themed() {
 			box-shadow: 0px 35px 50px -15px t('boxShadowColor');
@@ -57,6 +58,7 @@
 		}
 		font-size: $font_sm;
 		color: $Dark_Grayish_Blue;
+		transition: background-color 400ms ease-in-out;
 
 		.clearCompleted {
 			cursor: pointer;
